@@ -80,36 +80,38 @@ Menu
 
 
 
-
-<div class="contenido">
-    {% load crispy_forms_tags %}
-    <div class="container">
-        <div class="row">
-            <div class="col-12 col-md-6 offset-md-3">
-                <div class="card">
-                    <div class="car-body">
-                        <h2>Registro de datos</h2>
-                        <form action="#" method="post" id="formulario">
-                            {% csrf_token %}
-                            {{ form | crispy }}
-                            <div id="errorCorreo" class="errores" >Ingrese un con formato gmail o hotmail</div>
-                            <a href="{% url 'index' %}">aqui</a>
-                            bo
-                            <button type="submit" class="btn btn-secondary" id="registrar" style="float:right;">registrar</button>
-                        </form>
-                    </div>
-                </div>
-            </div>
+{% block content %}
+<div class="container">
+    <div class="row">
+        <div class="col-md-12">
+            <h1>Add Student </h1>
+            <form action="" method='POST'>
+                {% csrf_token %}
+                {{form.as_p}}
+                <button type="submit" class="btn btn-primary btn-sm" value=""> Save</button>
+            </form>
         </div>
-    </div>    
+    </div>
 </div>
-          
+
+{% endblock content %}
 
         
         </div>
         
       
-        
+        <footer>
+          <div class="footer">
+              Benjamin Rodriguez
+              Brian Martel
+              Daniel Avilar
+              @Copyrigth Derechos reservados.
+    
+          
+              <a #link1 href="linkInstagram"> <img src="{% static 'img/instagram.png'%}" alt="@SpiderBoulder" width="10%" height="120%"> </a>
+          
+        </div>
+    </footer>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
   </body>
 </html>

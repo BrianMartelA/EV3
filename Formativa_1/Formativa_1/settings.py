@@ -39,7 +39,9 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'alumnos',
+    'crispy_forms',
 ]
+CRISPY_TEMPLATE_PACK='bootstrap4'
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
@@ -68,7 +70,11 @@ TEMPLATES = [
         },
     },
 ]
+MEDIA_URL= "media-files/"
+MEDIA_ROOT= BASE_DIR / "files"
 
+LOGIN_REDIRECT_URL="/"
+LOGOUT_REDIRECT_URL="/"
 WSGI_APPLICATION = 'Formativa_1.wsgi.application'
 
 
