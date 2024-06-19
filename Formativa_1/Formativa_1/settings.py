@@ -73,8 +73,8 @@ TEMPLATES = [
 MEDIA_URL= "media-files/"
 MEDIA_ROOT= BASE_DIR / "files"
 
-LOGIN_REDIRECT_URL="/"
-LOGOUT_REDIRECT_URL="/"
+LOGIN_REDIRECT_URL="galeria"
+LOGOUT_REDIRECT_URL="index"
 WSGI_APPLICATION = 'Formativa_1.wsgi.application'
 
 

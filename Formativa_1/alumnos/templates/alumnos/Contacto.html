@@ -16,7 +16,9 @@
      
 <!-- Barra de navegacion -->
 <!--Barra navegacion pantalla -->
-
+{%if user.is_authenticated %}
+<a href="#">{{ user.username}}</a>
+{% endif %}
 <div class="container">
     
   <div class="col d-none d-md-block">

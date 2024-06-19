@@ -80,7 +80,9 @@
   </div>
  
 <!-- Imagenes -->
-
+{%if user.is_authenticated %}
+<a href="#">{{ user.username}}</a>
+{% endif %}
 
   <div style="display: flex; justify-content:center; margin-top: 1%" >
     <div class="fondo_div" >

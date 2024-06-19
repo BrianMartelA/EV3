@@ -1,78 +1,65 @@
 $(document).ready(function(){
     $("#registrar").click(function(){
-        var nombre = $("#user").val();
+        var nombre = $("#id_username").val();
         var correo = $("#id_email").val();
-        var confirmarCorreo = $("#confirmar_correo").val();
-        var pass =$("#contrasena").val();
-        var conPass = $("#confirmarContrasena").val();
+        var confirmarCorreo = $("#id_Confemail").val();
+        var pass =$("#id_password1").val();
+        var conPass = $("#id_password2").val();
         var passRegex = /^(?=.*[A-Z])(?=.*[a-z])(?=.*\d)(?=.*[\W_]).{8,}$/;
         var isValid = true;
+        var validacionCorreo=/^[a-zA-Z0-9._%+-]+@(gmail|hotmail)\.(com|cl)$/;
 
-        function validarCorreo(correo){
-            var emailRegex = /^[a-zA-Z0-9._%+-]+@(gmail|hotmail)\.(com|cl)$/;
-            return emailRegex.test(correo)
 
-        }
-        function validarFormulario() {
-            var correo = $('#id_email').val(); // Obtener el valor del campo de correo electrónico
-            if (!validarCorreo(correo) && correo == null && correo == "") {
-                // Si el correo no es válido, mostrar un mensaje de error
-                $('#errorCorreo').text('Correo electrónico inválido');
-                e.preventDefault();
-
-                return false;
+        if(nombre == "" || nombre== null || nombre.length>20|| nombre.length<5){
+            $("#errorNombre").fadeIn();
+            isValid = false;
+        } 
+        else{
+            $("#errorNombre").fadeOut();
+            if(!passRegex.test(pass)){
+                $("#errorpassword").fadeIn();
+                isValid = false;
             }
-            return true;
+            else{
+                $("#errorpassword").fadeOut();
+
+                if(conPass != pass || conPass == null || conPass == ""){
+                    $("#errorConf").fadeIn();
+                    isValid = false;
+                }
+                else{
+                    $("#errorConf").fadeOut();
+
+                    if (correo === "" || correo === null) {
+                        $("#errorCorreo").fadeIn();
+                        isValid = false;
+                    } else {
+                        $("#errorCorreo").fadeOut();
+                        if (!validacionCorreo.test(correo)) {
+                            $("#errorCorreoFormato").fadeIn();
+                            isValid = false;
+                        } else {
+                            $("#errorCorreoFormato").fadeOut();
+                            if (correo !== confirmarCorreo) {
+                                $("#errorConfCorreo").fadeIn();
+                                isValid = false;
+                            } else {
+                                $("#errorConfCorreo").fadeOut();
+                            }
+                        }
+                    }
+                           
+            }
+            
+    }
         }
-    
-        // Manejar la validación cuando se envía el formulario
-        $('#miFormulario').submit(function() {
-            return validarFormulario();
-        });
-
-        
-        
-        if (!emailRegex.test(correo)) {
-            $("#errorCorreo").fadeIn();
-            isValid = false;
-        } else {
-            $("#errorCorreo").fadeOut();
+        if(isValid){
+            $("#formulario").submit();
         }
-
-        if (confirmarCorreo !== correo) {
-            $("#errorConfirmarCorreo").fadeIn();
-            isValid = false;
-        } else {
-            $("#errorConfirmarCorreo").fadeOut();
-        }
-
-        if (nombre.length > 20 || nombre.length < 5 || nombre === "") {
-            $("#errorUser").fadeIn();
-            isValid = false;
-        } else {
-            $("#errorUser").fadeOut();
-        }
-
-        if (!passRegex.test(pass)) {
-            $("#errorPass").fadeIn();
-            isValid = false;
-        } else {
-            $("#errorPass").fadeOut();
-        }
-
-        if (pass !== conPass) {
-            $("#errorConfirmarPass").fadeIn();
-            isValid = false;
-        } else {
-            $("#errorConfirmarPass").fadeOut();
-        }
-
-        if (!isValid) {
-            $('')
-            e.preventDefault();
-        }
-    });
+    } 
+  
+   
+   )});
 
 
 
-})

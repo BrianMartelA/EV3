@@ -43,7 +43,7 @@
             <button type="button" class="btn btn-outline-dark" onclick="location.href='{% url 'registro'%}'">registrar</button>
           </li>
           <li class="nav-item">
-            <button type="button" class="btn btn-outline-dark" onclick="location.href='{% url 'boulder'%}">Boulder</button>
+            <button type="button" class="btn btn-outline-dark" onclick="location.href='{% url 'boulder'%}'">Boulder</button>
           </li>
         </ul>
 
@@ -75,6 +75,9 @@ Menu
 </div>
 </div>
 <!--Contenido-->
+{%if user.is_authenticated %}
+<a href="#">{{ user.username}}</a>
+{% endif %}
 <div class="container">
   <div class="centrado">
     <p id="p1">Bienvenidos a Spider Boulder, donde encontraras los mejores articulos de escalada, desde zapatillas para escalar, hasta presas que puedes instalar en cualquier muro.</p>
