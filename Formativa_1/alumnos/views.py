@@ -2,6 +2,7 @@ from django.shortcuts import redirect, render
 from .forms import SignUpForm
 from .models import cliente,Registro_cliente
 from django.contrib.auth import authenticate, login
+from django.contrib.auth.models import Group
 from django.contrib import messages
 
 
@@ -25,6 +26,10 @@ def boulder(request):
     context = {}
     return render(request,'alumnos/Boulder.html',context)
 
+def perfil(request):
+    context={}
+    return render(request,'alumnos/perfil.html',context)
+
 
 
 
@@ -39,6 +44,8 @@ def registro(request):
 
             user=formulario.save()
             Registro_cliente.objects.create(user=user)
+            group = Group.objects.get(name='cliente')
+            user.groups.add(group)
 
             user=authenticate(username=formulario.cleaned_data["username"], password=formulario.cleaned_data["password1"])
             login(request, user)

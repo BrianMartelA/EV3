@@ -127,6 +127,8 @@
 </div>
 {%if user.is_authenticated %}
 <a href="#">{{ user.username}}</a>
+<a href="{% url 'logout' %}">Cerrar sesion</a>
+
 {% endif %}
 <div class="carruselTodo" style="margin-top: 1%;">
     <div id="carrusel" class="carousel slide" data-ride="carousel">

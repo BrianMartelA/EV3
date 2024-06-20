@@ -74,7 +74,8 @@ MEDIA_URL= "media-files/"
 MEDIA_ROOT= BASE_DIR / "files"
 
 LOGIN_REDIRECT_URL="galeria"
-LOGOUT_REDIRECT_URL="index"
+LOGOUT_REDIRECT_URL="galeria"
+
 WSGI_APPLICATION = 'Formativa_1.wsgi.application'
 
 
