@@ -41,6 +41,7 @@
         <ul class="nav nav-underline nav justify-content-end">
           <!----VENTANA FORMATO LOGEADO----->
           {% if user.is_authenticated %}
+          {% if not user.is_superuser and not user.is_staff %}
           <div class="dropdown">
             <button class="btn btn-venta dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">Menu</button>
             <ul class="dropdown-menu">
@@ -49,8 +50,15 @@
                 {% csrf_token %}
                 <button type="submit" class="btn btn-light">logout</button>
               </form></li>
+              <li>          <h4>Confirmacion cliente</h4>
+              </li>
             </ul>
           </div>
+          {% elif user.is_staff%}
+          <h1>Confirmacion staff</h1>
+          
+          {% endif %}
+          
 
             <!---PENDIENTE/ VENTANA FORMATO SIN LOGEAR-->
             {% else %}
