@@ -7,6 +7,7 @@ from django import forms
 
 class SignUpForm(UserCreationForm):
     confirmarcorreo = forms.EmailField(label='confirmar correo')
+    password1 = forms.CharField(widget=forms.PasswordInput(attrs={'id':'id_password1','type':'password'}))
     class Meta:
         model=User
         fields = ['username', 'password1', 'password2', 'email','confirmarcorreo']
@@ -16,7 +17,7 @@ class SignUpForm(UserCreationForm):
     
 
 class UserProfileForm(forms.ModelForm):
-    password = forms.CharField()
+    password = forms.CharField(widget=forms.PasswordInput(attrs={'id':'id_password1','type':'password'}))
 
     class Meta:
         model = User
