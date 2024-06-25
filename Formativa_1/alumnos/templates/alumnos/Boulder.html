@@ -75,6 +75,9 @@ Menu
 </ul>
 </div>
 </div>
+{%if user.is_authenticated %}
+<a href="#">{{ user.username}}</a>
+{% endif %}
     <div class="contenedor">
         <div>
             <p id="textoBoulder">A modo de facilitar el ingreso a las personas para este tipo de actividad, se muestra un mapa con la ubicacion de gimnasios de escalada con el proposito de facilitar la esclada segura.</p>

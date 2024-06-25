@@ -40,6 +40,8 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'alumnos',
     'crispy_forms',
+    'crispy_bootstrap4',
+
 ]
 CRISPY_TEMPLATE_PACK='bootstrap4'
 
@@ -73,8 +75,9 @@ TEMPLATES = [
 MEDIA_URL= "media-files/"
 MEDIA_ROOT= BASE_DIR / "files"
 
-LOGIN_REDIRECT_URL="/"
-LOGOUT_REDIRECT_URL="/"
+LOGIN_REDIRECT_URL="galeria"
+LOGOUT_REDIRECT_URL="galeria"
+
 WSGI_APPLICATION = 'Formativa_1.wsgi.application'
 
 

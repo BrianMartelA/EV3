@@ -80,7 +80,9 @@
   </div>
  
 <!-- Imagenes -->
-
+{%if user.is_authenticated %}
+<a href="#">{{ user.username}}</a>
+{% endif %}
 
   <div style="display: flex; justify-content:center; margin-top: 1%" >
     <div class="fondo_div" >
@@ -122,8 +124,9 @@
                 <option value="42"> Talla 42 H</option>
               </optgroup>
               </select>
+              {% if user.is_authenticated%}
               <button type="button" class="btn btn-outline-primary" data-bs-dismiss="modal" aria-label="confirmar" style="margin-left: 50%; margin-bottom: 6%">confirmar</button>
-
+              {% endif%}
           </div>
           
           
@@ -169,8 +172,9 @@
                 <option value="41m"> Talla 41 M</option>
                 <option value="42m"> Talla 42 M</option>
               </select>
+              {% if user.is_authenticated%}
               <button type="button" class="btn btn-outline-primary" data-bs-dismiss="modal" aria-label="confirmar" style="margin-left: 50%; margin-bottom: 6%">confirmar</button>
-
+              {% endif%}
             </div>
           </div>
         </div>
@@ -206,6 +210,9 @@
               su construccion cuenta con una capa de polipropileno estable y la interior esta hecha de espuma dura de poliestireno, protegiendo la cabeza contra la caida 
               de objetos contundentes.
             </div>
+            {% if user.is_authenticated%}
+              <button type="button" class="btn btn-outline-primary" data-bs-dismiss="modal" aria-label="confirmar" style="margin-left: 50%; margin-bottom: 6%">confirmar</button>
+              {% endif%}
           </div>
         </div>
       </div>
@@ -242,6 +249,9 @@
           Gran area de cuero artificial en la bala del pulgar, tejido de malla respirable y elástico en la parte posterior de la mano, bucles tearproof con
           carabina para material, fijacion del guanta a la mochila, ideal para escalada profesional y trabajos en la casa y de jardín.
         </div>
+        {% if user.is_authenticated%}
+              <button type="button" class="btn btn-outline-primary" data-bs-dismiss="modal" aria-label="confirmar" style="margin-left: 50%; margin-bottom: 6%">confirmar</button>
+              {% endif%}
       </div>
     </div>
   </div>
@@ -272,6 +282,9 @@
             Una bolsa para magnesio muy funcional para uso diario desde los boulders hasta las grandes paredes, diseño clasico con borde fleixible
             y parte inferior de plastico para mayor resistencia y durabilidad.
           </div>
+          {% if user.is_authenticated%}
+              <button type="button" class="btn btn-outline-primary" data-bs-dismiss="modal" aria-label="confirmar" style="margin-left: 50%; margin-bottom: 6%">confirmar</button>
+              {% endif%}
         </div>
       </div>
     </div>
@@ -305,6 +318,9 @@
           Cinta para dedos, para sesiones de entrenamiento prolongadas, cuenta con una mayor cantidad de pegamento y adherencia, lo que permite un agarre ideal
           en los tendones de los dedos y muñecas, tambien se puede reforzar las manos en escalada tradicional o cubrir la yema de los dedos
         </div>
+        {% if user.is_authenticated%}
+              <button type="button" class="btn btn-outline-primary" data-bs-dismiss="modal" aria-label="confirmar" style="margin-left: 50%; margin-bottom: 6%">confirmar</button>
+              {% endif%}
       </div>
     </div>
   </div>

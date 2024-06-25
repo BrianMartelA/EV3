@@ -94,7 +94,7 @@
                 <button type="button" class="btn btn-outline-dark" onclick="location.href='{% url 'registro'%}'">registrar</button>
               </li>
               <li class="nav-item">
-                <button type="button" class="btn btn-outline-dark" onclick="location.href='{% url 'boulder'%}">Boulder</button>
+                <button type="button" class="btn btn-outline-dark" onclick="location.href='{% url 'boulder'%}'">Boulder</button>
               </li>
             </ul>
 
@@ -125,7 +125,11 @@
 </ul>
 </div>
 </div>
-    
+{%if user.is_authenticated %}
+<a href="#">{{ user.username}}</a>
+<a href="{% url 'logout' %}">Cerrar sesion</a>
+
+{% endif %}
 <div class="carruselTodo" style="margin-top: 1%;">
     <div id="carrusel" class="carousel slide" data-ride="carousel">
         <ol class="carousel-indicators">

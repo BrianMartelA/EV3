@@ -1,8 +1,11 @@
 from django.shortcuts import redirect, render
-from .forms import SignUpForm
+from .forms import SignUpForm, UserProfileForm
 from .models import cliente,Registro_cliente
 from django.contrib.auth import authenticate, login
+from django.contrib.auth.models import Group
 from django.contrib import messages
+from django.contrib.auth.decorators import login_required
+
 
 
 # Create your views here.
@@ -29,6 +32,8 @@ def boulder(request):
 
 
 
+
+
 def registro(request):
     data ={
         'form' : SignUpForm()
@@ -39,6 +44,8 @@ def registro(request):
 
             user=formulario.save()
             Registro_cliente.objects.create(user=user)
+            group = Group.objects.get(name='cliente')
+            user.groups.add(group)
 
             user=authenticate(username=formulario.cleaned_data["username"], password=formulario.cleaned_data["password1"])
             login(request, user)
@@ -46,3 +53,18 @@ def registro(request):
             return redirect('index')
         data["form"] = formulario
     return render(request, 'alumnos/registro.html',data)
+
+
+
+@login_required
+def perfil(request):
+    if request.method == 'POST':
+        form = UserProfileForm(request.POST, instance=request.user)
+        if form.is_valid():
+            form.save()
+            messages.success(request,'tu contraseña se ha actualizado correctamente')
+            return redirect('perfil')
+    else:
+            form = UserProfileForm(instance=request.user)
+    return render(request, 'alumnos/perfil.html',{'form':form})
+            
